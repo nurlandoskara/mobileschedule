@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileSchedule.GroupPage">
+    <StackLayout>
+        <!-- Place new controls here -->
+        <Label Text="Өз сыныбыңызды таңдаңыз!" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"/>
+        <SearchBar x:Name="SearchGroupText" SearchButtonPressed="SearchGroupText_OnSearchButtonPressed" TextChanged="SearchGroupText_OnTextChanged"/>
+      <ListView x:Name="GroupsList" ItemTapped="GroupsList_OnItemTapped" SeparatorColor="Green" IsPullToRefreshEnabled="True" Refreshing="GroupsList_OnRefreshing">
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <TextCell Text="{Binding DisplayName}" />
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
+    </StackLayout>
+
+</ContentPage>

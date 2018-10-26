@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileSchedule.SchedulePage">
+    <StackLayout>
+        <Label x:Name="GroupName" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+        <ListView x:Name="ScheduleTable" HasUnevenRows="True" RowHeight="-1" IsPullToRefreshEnabled="True" Refreshing="ScheduleTable_OnRefreshing">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout>
+                            <Label Text="{Binding DayOfWeek}" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"/>
+                            <ListView ItemsSource="{Binding Lessons}">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <StackLayout>
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="20*"/>
+                                                        <ColumnDefinition Width="40*"/>
+                                                        <ColumnDefinition Width="40*"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <Label Grid.Column="0" Text="{Binding Order}" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"/>
+                                                    <Label Grid.Column="1" Text="{Binding SubjectName}" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"/>
+                                                    <Label Grid.Column="2" Text="{Binding TeacherName}" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"/>
+                                                </Grid>
+                                            </StackLayout>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>
