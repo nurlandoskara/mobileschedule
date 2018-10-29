@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MobileSchedule.SchedulePage">
+             x:Class="MobileSchedule.TeacherSchedulePage">
     <StackLayout>
         <Label x:Name="ScheduleName" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
         <ListView x:Name="ScheduleTable" HasUnevenRows="True" RowHeight="-1" IsPullToRefreshEnabled="True" Refreshing="ScheduleTable_OnRefreshing">

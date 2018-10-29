@@ -1,17 +1,16 @@
-﻿using System;
+﻿using MobileSchedule.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using MobileSchedule.ViewModels;
 using Xamarin.Forms;
 
 namespace MobileSchedule
 {
     public partial class GroupPage : ContentPage
     {
-        public ObservableCollection<Group> Groups { get; set; }
+        public ObservableCollection<GroupOrTeacher> Groups { get; set; }
 
         public GroupPage()
         {
@@ -30,7 +29,7 @@ namespace MobileSchedule
         {
             try
             {
-                var groupsList = new List<Group>();
+                var groupsList = new List<GroupOrTeacher>();
                 GroupsList.IsRefreshing = true;
                 var groups = await GetGroupsAsync();
                 GroupsList.EndRefresh();
@@ -38,10 +37,10 @@ namespace MobileSchedule
                 {
                     foreach (var group in groups)
                     {
-                        groupsList.Add(new Group() { DisplayName = group.DisplayName, Id = group.Id });
+                        groupsList.Add(new GroupOrTeacher() { DisplayName = group.DisplayName, Id = group.Id });
                     }
                 }
-                Groups = new ObservableCollection<Group>(groupsList);
+                Groups = new ObservableCollection<GroupOrTeacher>(groupsList);
                 GroupsList.ItemsSource = Groups;
             }
             catch (Exception e)
@@ -54,7 +53,7 @@ namespace MobileSchedule
 
         public async void GroupSelected()
         {
-            var group = GroupsList.SelectedItem as Group;
+            var group = GroupsList.SelectedItem as GroupOrTeacher;
             Application.Current.Properties["groupId"] = group?.Id;
             Application.Current.Properties["groupName"] = group?.DisplayName;
             var page = new SchedulePage(){Title = "Сабақ кестесі"};

@@ -9,6 +9,11 @@
             <mobileSchedule:GroupPage Title="Сыныпты таңдау" />
         </x:Arguments>
     </NavigationPage>
+    <NavigationPage Title="Мұғалім кестесі"  Icon="schedule.png">
+        <x:Arguments>
+            <mobileSchedule:TeacherPage Title="Мұғалім таңдау" />
+        </x:Arguments>
+    </NavigationPage>
     <NavigationPage Title="Жаңалықтар"  Icon="schedule.png">
         <x:Arguments>
             <mobileSchedule:NewsPage Title="Жаңалықтар"/>

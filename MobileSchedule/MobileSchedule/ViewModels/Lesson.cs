@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Text;
-
-namespace MobileSchedule.ViewModels
+﻿namespace MobileSchedule.ViewModels
 {
     public class Lesson
     {
         public int Order { get; set; }
         public string SubjectName { get; set; }
-        public string TeacherName { get; set; }
+        public string GroupOrTeacherName { get; set; }
+        public string AuditoryName { get; set; }
     }
 }

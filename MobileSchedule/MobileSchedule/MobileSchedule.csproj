@@ -16,11 +16,17 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="TeacherPage.xaml.cs">
+      <DependentUpon>TeacherPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="GroupPage.xaml.cs">
       <DependentUpon>GroupPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="TeacherSchedulePage.xaml.cs">
+      <DependentUpon>TeacherSchedulePage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 

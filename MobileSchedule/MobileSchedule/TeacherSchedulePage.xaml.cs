@@ -8,35 +8,35 @@ using Xamarin.Forms;
 
 namespace MobileSchedule
 {
-    public partial class SchedulePage : ContentPage
+    public partial class TeacherSchedulePage : ContentPage
     {
         public ObservableCollection<Day> Days { get; set; }
 
-        public SchedulePage()
+        public TeacherSchedulePage()
         {
             InitializeComponent();
             ShowSchedule();
         }
 
-        private static async Task<dynamic> GetDaysAsync(int groupId)
+        private static async Task<dynamic> GetDaysAsync(int teacherId)
         {
-            var queryString = "http://sschedule.azurewebsites.net/api/schedule?groupId=" + groupId;
+            var queryString = "http://sschedule.azurewebsites.net/api/tschedule?teacherId=" + teacherId;
             var days = await DataService.GetData(queryString).ConfigureAwait(false);
             return days;
         }
 
         private async void ShowSchedule()
         {
-            if (Application.Current.Properties.ContainsKey("groupId"))
+            if (Application.Current.Properties.ContainsKey("teacherId"))
             {
-                var groupId = (int)Application.Current.Properties["groupId"];
-                var groupName = Application.Current.Properties["groupName"].ToString();
-                ScheduleName.Text = groupName + " сыныбына арналған сабақ кестесі";
+                var teacherId = (int)Application.Current.Properties["teacherId"];
+                var teacherName = Application.Current.Properties["teacherName"].ToString();
+                ScheduleName.Text = teacherName + " сабақ кестесі";
                 try
                 {
                     var schedule = new List<Day>();
                     ScheduleTable.IsRefreshing = true;
-                    var days = await GetDaysAsync(groupId);
+                    var days = await GetDaysAsync(teacherId);
                     ScheduleTable.IsRefreshing = false;
                     if (days != null)
                     {
