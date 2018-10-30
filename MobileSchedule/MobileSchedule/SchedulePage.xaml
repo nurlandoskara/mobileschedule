@@ -4,13 +4,13 @@
              x:Class="MobileSchedule.SchedulePage">
     <StackLayout>
         <Label x:Name="ScheduleName" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
-        <ListView x:Name="ScheduleTable" HasUnevenRows="True" RowHeight="-1" IsPullToRefreshEnabled="True" Refreshing="ScheduleTable_OnRefreshing">
+        <ListView x:Name="ScheduleTable" HasUnevenRows="True" IsPullToRefreshEnabled="True" Refreshing="ScheduleTable_OnRefreshing">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout>
-                            <Label Text="{Binding DayOfWeek}" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"/>
-                            <ListView ItemsSource="{Binding Lessons}">
+                        <StackLayout VerticalOptions="Fill">
+                            <Label Text="{Binding DayOfWeek}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="Gray"/>
+                            <ListView ItemsSource="{Binding Lessons}" HasUnevenRows="True">
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
                                         <ViewCell>
