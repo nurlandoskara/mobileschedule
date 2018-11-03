@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileSchedule.Android", "M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileSchedule.iOS", "MobileSchedule\MobileSchedule.iOS\MobileSchedule.iOS.csproj", "{CF3DC8E3-6917-4A36-9C8F-218AA7F3400C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileSchedule", "MobileSchedule\MobileSchedule\MobileSchedule.csproj", "{4EF3CEB8-5C6B-4C5A-8554-94291401EFCA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MobileSchedule", "MobileSchedule\MobileSchedule\MobileSchedule.csproj", "{4EF3CEB8-5C6B-4C5A-8554-94291401EFCA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

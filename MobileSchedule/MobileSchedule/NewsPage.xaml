@@ -2,11 +2,19 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MobileSchedule.NewsPage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Жаңалықтар"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+    <StackLayout>
+        <SearchBar x:Name="SearchNewsText" SearchButtonPressed="SearchNewsText_OnSearchButtonPressed" TextChanged="SearchNewsText_OnTextChanged"/>
+        <ListView x:Name="NewsList" HasUnevenRows="True" SeparatorColor="Green" IsPullToRefreshEnabled="True" Refreshing="NewsList_OnRefreshingList_OnRefreshing">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout>
+                            <Label Text="{Binding Title}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                            <Label Text="{Binding Description}" Margin="5" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
 </ContentPage>
