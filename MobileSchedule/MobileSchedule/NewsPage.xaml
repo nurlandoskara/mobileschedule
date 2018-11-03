@@ -10,6 +10,7 @@
                     <ViewCell>
                         <StackLayout>
                             <Label Text="{Binding Title}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                            <Image Source="{Binding Path=Image}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Aspect="AspectFit"/>
                             <Label Text="{Binding Description}" Margin="5" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
                         </StackLayout>
                     </ViewCell>

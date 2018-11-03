@@ -1,9 +1,12 @@
-﻿using MobileSchedule.ViewModels;
+﻿using Android.Graphics;
+using MobileSchedule.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Android.Util;
 using Xamarin.Forms;
 
 namespace MobileSchedule
@@ -37,7 +40,13 @@ namespace MobileSchedule
 	            {
 	                foreach (var item in news)
 	                {
-	                    newsList.Add(new News() { Title = item.Title, Description = item.Description, Id = item.Id});
+	                    newsList.Add(new News()
+	                    {
+	                        Title = item.Title,
+	                        Description = item.Description,
+	                        Id = item.Id,
+	                        Image = Base64ToBitmap(item.Image.ToString())
+	                    });
 	                }
 	            }
 	            News = new ObservableCollection<News>(newsList);
@@ -50,7 +59,15 @@ namespace MobileSchedule
 	        }
 	    }
 
-	    private void NewsList_OnRefreshingList_OnRefreshing(object sender, EventArgs e)
+	    private ImageSource Base64ToBitmap(string base64String)
+	    {
+	        return ImageSource.FromStream(() => new MemoryStream(Convert.FromBase64String(base64String)));
+            /*
+            byte[] imageAsBytes = Base64.Decode(base64String, Base64Flags.Default);
+	        return BitmapFactory.DecodeByteArray(imageAsBytes, 0, imageAsBytes.Length);*/
+	    }
+
+        private void NewsList_OnRefreshingList_OnRefreshing(object sender, EventArgs e)
 	    {
 	        ShowNews();
 	    }
